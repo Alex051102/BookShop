@@ -1,0 +1,212 @@
+@import '../../app/globals.css';
+.header{
+    display: flex;
+    justify-content: center;
+    &__container{
+    display: flex;
+    gap: 30px;
+    padding: 15px 20px;
+    align-items: center;
+   @media (max-width: 1250px) {
+            gap: 15px;
+         }
+    @media (max-width: 650px) {
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+    }
+    }
+   &__logo{
+    grid-column-start:1 ;
+    grid-column-end:3 ;
+    display: flex;
+    justify-content: center;
+   }
+    &__logoImg{
+          @media (max-width: 1250px) {
+ width: 200px;
+        height: 54px;
+          }
+       
+    }
+    &__main{
+        display: flex;
+        justify-content: center;
+        @media (max-width: 650px) {
+            grid-row: 2;
+           
+         }
+     }
+    &__mainContainer{
+       
+         display: flex;
+         gap: 20px;
+        
+    }
+    &__catalog{
+        background-color: var(--orange-main);
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        
+    }
+    &__catalogContainer{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        @media (max-width: 1250px) {
+            gap: 10px;
+            padding: 7px;
+         }
+    }
+    &__catalogOpenMenu{
+        position: absolute;
+        background-color: #F5F5F7;
+     
+        border: 2px solid rgb(205, 200, 200);
+    box-shadow: 10px 10px 20px grey;
+    border-radius: 6px;
+       top: 50px;
+       left: 1px;
+        width: 600px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+         @media (max-width: 835px) {
+                width: 400px;
+         }
+       
+    }
+    &__catalogOpenMenuItemContainer{
+        display: grid;  border: 1px solid rgba(255, 255, 255, 0.3);
+        grid-template-columns: 2fr 0.2fr;
+        align-items: center;
+        padding:20px 15px;
+    padding-right: 2px;
+
+}
+&__catalogOpenMenuItemText{
+    @media (max-width: 835px) {
+        font-size: 14px;
+    }
+}
+    &__catalogText{
+        font-size: 18px;
+        color: white;
+         @media (max-width: 1250px) {
+            font-size: 16px;
+         }
+
+    }
+    &__catalogImg{
+        display: flex;
+        justify-content: end;
+         @media (max-width: 1250px) {
+            width: 14px;
+            height: 11px;
+         }
+    }
+    &__search{
+        border: 1px solid black;
+        width: 420px;
+        border-radius: 7px;
+       
+       
+        @media (max-width: 1250px) {
+ width: 280px;
+        }
+         @media (max-width: 1000px) {
+            width: 210px;
+            height: 36px;
+             display: flex;
+        align-items: center;
+        }
+         
+    }
+    &__searchContainer{
+        display: grid;
+        align-items: center;
+        gap: 10px;
+        grid-template-columns: 2fr 0.2fr;
+        padding: 15px 10px;
+    }
+    &__searchInput{
+        border: none;
+        
+    }
+    &__searchInput:focus{
+        outline: none;
+    }
+   &__nav{
+     @media (max-width: 835px) {
+        background-color: var(--orange-main);
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+     }
+      @media (max-width: 650px) {
+            grid-row: 2;
+           
+         }
+   }
+  
+    &__navContainer{
+        display: flex;
+        justify-content: end;
+        gap: 30px;
+         @media (max-width: 1250px) {
+            gap: 15px;
+         }
+          @media (max-width: 835px) {
+        background-color: var(--orange-main);
+        position: absolute;
+        top:60px;
+        left: -60px;
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+        border-radius: 6px;
+     }
+     &.burgerOpen{
+    @media (max-width: 835px) {
+        display: flex;
+    }
+   }
+   &.burgerExit{
+    @media (max-width: 835px) {
+        display: none;
+    }
+   }
+    }
+     
+    &__navItem{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    &__navItemText{
+        font-size: 14px;
+         @media (max-width: 1250px) {
+            font-size: 12px;
+         }
+          @media (max-width: 835px) {
+            font-size: 15px;
+            padding: 10px;
+            color: white;
+          }
+    }
+     &__navItemImg{
+         @media (max-width: 1250px) {
+            width: 27px;
+            height: 27px;
+         }
+          @media (max-width: 835px) {
+            display: none;
+          }
+    }
+}
+
