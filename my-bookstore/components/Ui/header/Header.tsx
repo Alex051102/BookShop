@@ -11,6 +11,8 @@ import cart from '@/public/cart-icon.svg'
 import favourite from '@/public/favorite-icon.svg'
 import order from '@/public/order-icon.svg'
 import arrow from '@/public/catalog-arrow.svg'
+import burgerMenu from '@/public/burgerMenu.svg'
+import Link from 'next/link'
 export default function Header() {
 
   const [openMenu,setOpenMenu]=useState(false)
@@ -18,62 +20,54 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.header__container}>
-        <div className={styles.header__logo}>
+        <Link href='/' className={styles.header__logo}>
           <Image className={styles.header__logoImg} src={logo} alt='Логотип'></Image>
-        </div>
+        </Link>
        <div className={styles.header__main}>
         <div className={styles.header__mainContainer}>
           <div onClick={()=>setOpenMenu(c=>!c)} className={styles.header__catalog}>
             <div className={styles.header__catalogContainer}>
-              <div style={{display:`${openMenu==false?'none':'grid'}`}} className={styles.header__catalogOpenMenu}>
-                <div className={styles.header__catalogOpenMenuItem}>
+              <div className={`
+                  ${styles.header__catalogOpenMenu} 
+                  ${openMenu ? styles.header__catalogOpenMenu_visible : ''}
+                `}>
+                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Bestsellers</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
+                </Link>
+               <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>New releases</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
+                </Link>
+                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Худож</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Award winners</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
+                </Link>
+                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Popular</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
+                </Link>
+                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Trending</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
+                </Link>
+                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Children</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
-                  <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
-                    <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
-                  </div>
-                </div>
-                <div className={styles.header__catalogOpenMenuItem}>
-                  <div  className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Художественная литература</p>
-                    <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
-                  </div>
-                </div>
+                </Link>
+                
               </div>
               <p className={styles.header__catalogText}>Каталог</p>
               <Image className={styles.header__catalogImg} alt='Меню' src={openMenu==false?open:exit}></Image>
@@ -88,23 +82,30 @@ export default function Header() {
         </div>
        </div>
        <div onClick={()=>setOpenNav(c=>!c)} className={styles.header__nav}>
-        <div className={`${styles.header__navContainer} ${openNav ? styles.burgerOpen : styles.burgerExit}`}>
+        <Image className={styles.header__navImage} alt='Поиск' src={burgerMenu}></Image>
+        <div className={`
+            ${styles.header__navContainer} 
+            ${openNav ? styles.burgerOpen : styles.burgerExit}
+          `}>
           <div className={styles.header__navItem}>
+            
            <Image className={styles.header__navItemImg} alt='Аккаунт' src={account}></Image>
             <p className={styles.header__navItemText}>Аккаунт</p>
           </div>
-           <div className={styles.header__navItem}>
-           <Image className={styles.header__navItemImg} alt='Избранное' src={favourite}></Image>
-            <p className={styles.header__navItemText}>Избранное</p>
-          </div>
-           <div className={styles.header__navItem}>
+           
+            <Link className={styles.header__navItem} href='/favourite'>
+             <Image className={styles.header__navItemImg} alt='Избранное' src={favourite}></Image>
+            <p className={styles.header__navItemText}>Избранное</p></Link>
+          
+        
+           <Link className={styles.header__navItem} href='/orders'>
            <Image className={styles.header__navItemImg} alt='Заказы' src={order}></Image>
             <p className={styles.header__navItemText}>Заказы</p>
-          </div>
-           <div className={styles.header__navItem}>
+          </Link>
+           <Link className={styles.header__navItem} href='/cart'>
            <Image className={styles.header__navItemImg} alt='Корзина' src={cart}></Image>
             <p className={styles.header__navItemText}>Корзина</p>
-          </div>
+          </Link>
         </div>
        </div>
       </div>

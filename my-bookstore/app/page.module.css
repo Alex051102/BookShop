@@ -1,3 +1,17 @@
+
+
+  .home__container{
+    padding: 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+
+
+
+
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);

@@ -1,11 +1,12 @@
-// app/layout.tsx
+
 import { Rubik } from 'next/font/google'
+import Header from "@/components/Ui/header/Header";
 
 const rubik = Rubik({
-  subsets: ['latin', 'cyrillic'], // поддерживает кириллицу
-  weight: ['300', '400', '500', '600', '700'], // выбирай нужные начертания
-  display: 'swap', // для производительности
-  variable: '--font-rubik', // опционально, для CSS переменных
+  subsets: ['latin', 'cyrillic'], 
+  weight: ['300', '400', '500', '600', '700'], 
+  display: 'swap', 
+  variable: '--font-rubik', 
 })
 
 export default function RootLayout({
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={rubik.variable}>
       <body className={rubik.className}>
+        <Header></Header>
         {children}
       </body>
     </html>

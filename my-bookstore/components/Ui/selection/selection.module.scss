@@ -1,0 +1,54 @@
+.selection {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    &__title{
+        font-size: 38px;
+    }
+    &__wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &__leftArrow{
+        position: absolute;
+        left: 20px;
+        z-index: 4;
+         @media (max-width: 835px) {
+            display: none;
+         }
+    }
+    &__rightArrow{
+         position: absolute;
+        right: 20px; z-index: 4;
+         @media (max-width: 835px) {
+            display: none;
+         }
+    }
+    &__list {
+        width: 95vw;
+       
+        overflow: hidden;
+    }
+
+    &__listContainer {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-behavior: smooth;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    
+
+  
+}

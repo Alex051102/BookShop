@@ -1,0 +1,12 @@
+@import '../../../app/globals.css';
+.button{
+    background-color: var(--orange-main);
+    font-size: 18px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 7px;
+    border: none;
+}

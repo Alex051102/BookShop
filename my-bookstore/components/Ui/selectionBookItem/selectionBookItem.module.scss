@@ -1,0 +1,41 @@
+.selectionItem{
+    background-color: #F5F5F7;
+   position: relative;
+    align-items: center;
+    &__like{
+        position: absolute;
+        right: 15px;
+        top: 12px;
+    }
+    &__container{
+        padding: 10px 15px;
+         display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+    &__image{
+        display: flex;
+        justify-content: center;
+    }
+    &__title{
+        white-space: nowrap;      /* Запрещает перенос строк */
+  overflow: hidden;         /* Скрывает выходящий за границы текст */
+  text-overflow: ellipsis;  /* Добавляет троеточие */
+  width: 250px;      
+    }
+    &__stats{
+        display: flex;
+        gap: 15px;
+    }
+    &__statsItem{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    &__statsItemText{
+        color: grey;
+    }
+    &__priceText{
+        font-size: 22px;
+    }
+}

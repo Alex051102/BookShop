@@ -1,0 +1,12 @@
+.book{
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1400px;
+    &__outer{
+        display: flex;
+        justify-content: center;
+    }
+  
+}
