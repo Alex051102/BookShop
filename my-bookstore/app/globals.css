@@ -16,7 +16,19 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 
+/* Для Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* Для IE и Edge */
+* {
+    -ms-overflow-style: none;
+}
 body {
   color: var(--foreground);
   background: var(--background);

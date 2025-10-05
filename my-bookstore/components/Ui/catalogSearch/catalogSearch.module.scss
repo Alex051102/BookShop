@@ -1,0 +1,45 @@
+.catalog{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &__scroll{
+           @media(max-width:1000px){
+             overflow: scroll;
+           }
+       
+        }
+   
+     &__noScroll{
+@media(max-width:1000px){
+             overflow: hidden;
+            height: 92vh;
+           }
+     }
+    &__outer{
+        @media(max-width:1000px){
+         height: 100vh;
+        width: 100%;
+       background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 3;
+        position: fixed;
+        top: 0;
+            left: 0;overflow: hidden;
+        }}
+     &__outerNone{
+        display: none;
+     }
+       
+   
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
+        
+    }
+    &__main{
+         display: flex;
+       
+        gap: 20px;
+    }
+}

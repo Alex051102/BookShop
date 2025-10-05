@@ -16,7 +16,7 @@ export default function SelectionBookItem({data}:SelectionBookItemProps) {
   return (
     <>
        
-       <Link href={`catalog/${data.id}`} className={styles.selectionItem}>
+       <Link href={`/catalog/${data.id}`} className={styles.selectionItem}>
         <Image alt='like' className={styles.selectionItem__like} src={notLiked}></Image>
          <div className={styles.selectionItem__container}>
 

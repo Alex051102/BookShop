@@ -18,6 +18,7 @@ interface BookInfoProps{
 }
 export default function BookInfo({data}:BookInfoProps) {
   const [textt,setTextt]=useState<'descr' | 'charact' | 'rate'>('descr')
+
   return (
     <>
        
@@ -70,7 +71,7 @@ export default function BookInfo({data}:BookInfoProps) {
                   <p className={styles.book__mainInfoStatTextGrey}>Author</p><div className={styles.line}></div><p className={styles.book__mainInfoStatText}>{data?.author}</p>
                 </div>
                 <div className={styles.book__mainInfoStat}>
-                  <p className={styles.book__mainInfoStatTextGrey}>Year of publication</p><div className={styles.line}></div><p className={styles.book__mainInfoStatText}>{data?.year}</p>
+                  <p className={styles.book__mainInfoStatTextGrey}>Date of publication</p><div className={styles.line}></div><p className={styles.book__mainInfoStatText}>{data?.date}</p>
                 </div>
               </div>
               <div className={styles.book__orderOuter}>

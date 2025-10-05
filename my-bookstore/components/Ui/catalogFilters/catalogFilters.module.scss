@@ -1,0 +1,139 @@
+@import '../../../app/globals.css';
+.catalogFilters{
+    background-color: #F5F5F7;
+    width: 333px;
+    height: 900px;max-width: 1700px;
+     @media(max-width: 1000px){
+            position: absolute;
+             top: 1px;
+             left: -1px;
+             height: 93vh;
+             z-index: 45;
+        }
+   
+    &__exit{
+        display: none;
+        @media(max-width: 1000px){
+            display: block;
+        }
+    }
+    &__container{
+        padding: 25px;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__list{
+         display: flex;
+        gap: 15px;
+        flex-direction: column;
+       
+    }
+    &__listItem{
+         display: flex;
+        gap: 10px;
+        flex-direction: column;
+       
+    }
+    &__title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    &__choices{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__choice{
+        display: flex;
+        gap: 10px;
+    }
+    
+        input[type="checkbox"] {
+      // Прячем стандартный чекбокс
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      
+      // Цвет когда отмечен
+      &:checked {
+        background-color: var(--orange-main); // синий
+        border-color: var(--orange-main);
+      }
+      &:checked::after {
+        content: '✓';
+        position: absolute;
+        color: white;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &__inputs{
+        display: flex;
+        gap: 7px;
+        align-items: center;
+    }
+    &__input{
+        width: 128px;
+        height: 35px;
+        background-color: #D9D9D9;
+        border: none;
+        border-radius: 8px;
+       padding: 10px ;
+        &:focus{
+            outline: none;
+        }
+    }
+    &__search{
+       
+        background-color: #D9D9D9;
+          width: 285px;
+       
+        border-radius: 10px;
+        
+        
+    }
+    &__searchContainer{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 0.1fr;
+       
+        align-items: center;
+    }
+    &__searchInput{
+        background-color: transparent;
+        border: none;
+      
+      
+        
+        &:focus{
+            outline: none;
+        }
+    }
+    &__buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__button{
+    background-color: white;
+    font-size: 18px;
+    width: 285px;
+    height: 35px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 7px;
+    border: none;
+}
+}

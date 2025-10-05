@@ -1,0 +1,91 @@
+@import '../../../app/globals.css';
+.catalogBooks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 600px;
+    min-height: 85vh;
+    @media(max-width: 650px){
+             min-width: 300px;max-width: 420px;
+        }
+        @media(max-width: 500px){
+             min-width: 300px;max-width: 370px;
+        }
+    &__sort{
+        background-color: #F5F5F7;
+    }
+    &__filters{
+        display: none;
+        @media(max-width: 1000px){
+            display: block;
+        }
+    }
+    &__sortContainer{
+        padding: 15px;
+        display: flex;
+        gap: 30px;
+    }
+    &__sortType{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        position: relative;
+    }
+    &__sortTypeChoices{
+        position: absolute;
+        top: 30px;
+        
+        display: flex;
+        flex-direction: column;
+         background-color: #F5F5F7;
+       
+    }
+    &__sortTextOrange{
+        color: var(--orange-main) ;
+    }
+    &__sortTypeChoiceText{
+        text-align: center;
+        padding: 5px;
+        font-size: 14px;
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    &__pages{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: #F5F5F7;
+
+    }
+    &__pagesContainer{
+        display: flex;flex-wrap: wrap;
+    }
+    &__page{
+        border: none;
+         width: 46px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__pageActive{
+         width: 46px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--orange-main);
+    }
+  
+    &__pageButton{
+        width: 46px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+    }
+}

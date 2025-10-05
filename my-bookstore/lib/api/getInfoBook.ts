@@ -24,10 +24,10 @@ export default async function getInfoBook(bookId: string) {
       isbn: data.volumeInfo.industryIdentifiers?.[0]?.identifier || '-',
       author: data.volumeInfo.authors?.[0] || '-',
       pages: data.volumeInfo.pageCount || '-',
-      year: data.volumeInfo.publishedDate || '-',
+      date: data.volumeInfo.publishedDate || '-',
       description: getDescription(data.volumeInfo.description),
       title: data.volumeInfo.title || '-',
-      editionCount: 1, // Google Books не дает edition_count
+      editionCount: 1,
       price: data.saleInfo?.listPrice?.amount || Math.floor(Math.random() * 500) + 100,
       rating: data.volumeInfo.averageRating || 4.5,
       genres: data.volumeInfo.categories || [],

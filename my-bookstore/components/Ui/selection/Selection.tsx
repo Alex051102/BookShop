@@ -41,12 +41,14 @@ export default function Selection({
         }
     }
 
+  
+
     return (
         <div className={styles.selection}>
             <h1 className={styles.selection__title}>{title}</h1>
             
             <div className={styles.selection__wrapper}>
-                {/* Стрелки показываем всегда, но для скелетонов можно сделать disabled */}
+                
                 <Image 
                     onClick={scrollLeft} 
                     className={`${styles.selection__leftArrow} ${isLoading ? styles.selection__arrowDisabled : ''}`} 
@@ -66,12 +68,12 @@ export default function Selection({
                         className={styles.selection__listContainer}
                     >
                         {isLoading ? (
-                            // Горизонтальные скелетоны
+                          
                             [...Array(skeletonCount)].map((_, index) => (
                                 <SelectionBookItemSkeleton key={index} />
                             ))
                         ) : (
-                            // Реальные карточки
+                         
                             books.map((b: SelectionBook) => (
                                 <SelectionBookItem key={b.id} data={b} />
                             ))

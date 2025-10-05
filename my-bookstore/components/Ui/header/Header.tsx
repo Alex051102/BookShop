@@ -13,10 +13,13 @@ import order from '@/public/order-icon.svg'
 import arrow from '@/public/catalog-arrow.svg'
 import burgerMenu from '@/public/burgerMenu.svg'
 import Link from 'next/link'
+import setEmptyFilters from '@/lib/filters/setEmptyFilters'
 export default function Header() {
 
   const [openMenu,setOpenMenu]=useState(false)
   const [openNav,setOpenNav]=useState(false)
+
+  const [searchQuery,setSearchQuery]=useState('')
   return (
     <div className={styles.header}>
       <div className={styles.header__container}>
@@ -31,39 +34,51 @@ export default function Header() {
                   ${styles.header__catalogOpenMenu} 
                   ${openMenu ? styles.header__catalogOpenMenu_visible : ''}
                 `}>
-                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                <Link onClick={()=>setEmptyFilters()}  href={`/catalog/query/subject:fiction`} className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Bestsellers</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Fiction</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
-               <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+               <Link onClick={()=>setEmptyFilters()} href='/catalog/query/subject:travel' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>New releases</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Travel</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
-                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                <Link onClick={()=>setEmptyFilters()} href='/catalog/query/subject:science' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Award winners</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Science</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
-                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                <Link onClick={()=>setEmptyFilters()} href='/catalog/query/subject:art' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Popular</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Art</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
-                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                <Link onClick={()=>setEmptyFilters()} href='/catalog/query/subject:biography' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Trending</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>Biography</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
-                <Link href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                <Link onClick={()=>setEmptyFilters()}  href='/catalog/query/subject:history' className={styles.header__catalogOpenMenuItem}>
                   <div className={styles.header__catalogOpenMenuItemContainer}>
-                    <p className={styles.header__catalogOpenMenuItemText}>Children</p>
+                    <p className={styles.header__catalogOpenMenuItemText}>History</p>
+                    <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
+                  </div>
+                </Link>
+                <Link onClick={()=>setEmptyFilters()}  href='/catalog/query/subject:business' className={styles.header__catalogOpenMenuItem}>
+                  <div className={styles.header__catalogOpenMenuItemContainer}>
+                    <p className={styles.header__catalogOpenMenuItemText}>Business</p>
+                    <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
+                  </div>
+                </Link>
+                <Link onClick={()=>setEmptyFilters()}  href='/catalog' className={styles.header__catalogOpenMenuItem}>
+                  <div className={styles.header__catalogOpenMenuItemContainer}>
+                    <p className={styles.header__catalogOpenMenuItemText}>Others</p>
                     <Image className={styles.header__catalogOpenMenuItemArrow} src={arrow} alt='Логотип'></Image>
                   </div>
                 </Link>
@@ -75,8 +90,8 @@ export default function Header() {
           </div>
           <div className={styles.header__search}>
             <div className={styles.header__searchContainer}>
-              <input className={styles.header__searchInput} type="text" />
-              <Image className={styles.header__searchImg} alt='Поиск' src={search}></Image>
+              <input onChange={(e)=>setSearchQuery(e.target.value)} className={styles.header__searchInput} type="text" />
+              <Link href={`/catalog/query/${searchQuery}`}><Image onClick={()=>setEmptyFilters()} className={styles.header__searchImg} alt='Поиск' src={search}></Image></Link>
             </div>
           </div>
         </div>
@@ -90,21 +105,21 @@ export default function Header() {
           <div className={styles.header__navItem}>
             
            <Image className={styles.header__navItemImg} alt='Аккаунт' src={account}></Image>
-            <p className={styles.header__navItemText}>Аккаунт</p>
+            <p className={styles.header__navItemText}>Account</p>
           </div>
            
             <Link className={styles.header__navItem} href='/favourite'>
              <Image className={styles.header__navItemImg} alt='Избранное' src={favourite}></Image>
-            <p className={styles.header__navItemText}>Избранное</p></Link>
+            <p className={styles.header__navItemText}>Favourite</p></Link>
           
         
            <Link className={styles.header__navItem} href='/orders'>
            <Image className={styles.header__navItemImg} alt='Заказы' src={order}></Image>
-            <p className={styles.header__navItemText}>Заказы</p>
+            <p className={styles.header__navItemText}>Orders</p>
           </Link>
            <Link className={styles.header__navItem} href='/cart'>
            <Image className={styles.header__navItemImg} alt='Корзина' src={cart}></Image>
-            <p className={styles.header__navItemText}>Корзина</p>
+            <p className={styles.header__navItemText}>Cart</p>
           </Link>
         </div>
        </div>

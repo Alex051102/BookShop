@@ -1,11 +1,20 @@
 export default interface SelectionBook {
-  id: number;
+  id: string;
   title: string;
   coverUrl: string;
   rating?: number;
 
   editionCount: number;
   price: number;
+
+  publisher: string;
+  isbn: string;
+
+  pages: number | string;
+  date: string;
+  author: string;
+  genres: string[];
+  lang: string;
 }
 
 export interface BookInfo {
@@ -18,9 +27,9 @@ export interface BookInfo {
 
   author: string;
 
-  pages: number;
+  pages: number | string;
 
-  year: number;
+  date: string;
 
   description: string;
 

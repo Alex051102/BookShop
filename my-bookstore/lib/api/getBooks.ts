@@ -18,11 +18,19 @@ export default async function getBooks(type: string) {
         item.volumeInfo.imageLinks?.smallThumbnail ||
         '/default-book-cover.jpg',
 
-      // Реальные данные из Google Books
       editionCount: item.volumeInfo.pageCount || 0,
-      price: item.saleInfo?.listPrice?.amount,
-      rating: item.volumeInfo.averageRating,
+      price: Math.ceil(item.saleInfo?.listPrice?.amount) || 0,
+      rating:
+        Math.floor(item.volumeInfo.averageRating) || Math.ceil(item.volumeInfo.pageCount / 10),
       reviewsCount: item.volumeInfo.ratingsCount || 0,
+
+      publisher: item.volumeInfo.publisher || '-',
+      isbn: item.volumeInfo.industryIdentifiers?.[0]?.identifier || '-',
+
+      pages: item.volumeInfo.pageCount || '-',
+      date: item.volumeInfo.publishedDate || '-',
+      genres: item.volumeInfo.categories || [],
+      lang: item.volumeInfo.language || '-',
     }));
   }
 
