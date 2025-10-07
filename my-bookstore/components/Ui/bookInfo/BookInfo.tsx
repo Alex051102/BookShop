@@ -1,7 +1,7 @@
 'use client'
 
 import type { BookInfo } from '@/types/booksTypes'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './bookInfo.module.scss'
 import Image from 'next/image'
 import rate from '@/public/rate-icon.svg'
@@ -13,12 +13,27 @@ import man from '@/public/man-icon.svg'
 import Button from '../button/Button'
 import SelectionWrapper from '@/components/server/SelectionWrapper'
 import SimiliarBooks from '../similiarBooks/SimiliarBooks'
+import getFavourite from '@/lib/database/getFavourite'
+import { useSession } from 'next-auth/react'
+import { useFavorites } from '@/app/contexts/FavoritesContext';
 interface BookInfoProps{
   data:BookInfo | null
 }
 export default function BookInfo({data}:BookInfoProps) {
   const [textt,setTextt]=useState<'descr' | 'charact' | 'rate'>('descr')
+const { favorites, toggleFavorite, isLoading } = useFavorites();
+let idd=''
+if(data==null){
+   idd=' '
+}
+else{
+  idd=data.id
+}
+  const isLiked = favorites.includes(idd);
 
+  const handleFavoriteClick = () => {
+    toggleFavorite(idd);
+  };
   return (
     <>
        
@@ -38,8 +53,8 @@ export default function BookInfo({data}:BookInfoProps) {
                     <Image alt='comments' src={comment} className={styles.book__upInfoImg}></Image>
                     <p className={styles.book__upInfoText}>{data?.editionCount}</p>
                   </div>
-                  <div className={styles.book__upInfoDetail}>
-                    <Image alt='comments' src={notLiked} className={styles.book__upInfoImg}></Image>
+                  <div onClick={handleFavoriteClick} className={styles.book__upInfoDetail}>
+                    <Image alt='like' src={isLiked?liked:notLiked} className={styles.book__upInfoImg}></Image>
                     <p className={styles.book__upInfoText}>To favourites</p>
                   </div>
                 </div>

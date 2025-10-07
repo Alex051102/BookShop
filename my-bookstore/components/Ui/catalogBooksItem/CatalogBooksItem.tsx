@@ -4,13 +4,21 @@ import styles from './catalogBooksItem.module.scss'
 import Image from 'next/image'
 import rate from '@/public/rate-icon.svg'
 import comment from '@/public/comment-icon.svg'
-import fav from '@/public/favorite-icon.svg'
+import notLiked from '@/public/notLiked.svg'
+import liked from '@/public/liked.svg'
 import Button from '../button/Button'
 import Link from 'next/link'
+import { useFavorites } from '@/app/contexts/FavoritesContext'
 interface SelectionProps {
     book: SelectionBook
 }
 export default function CatalogBooksItem({ book }: SelectionProps) {
+    const { favorites, toggleFavorite, isLoading } = useFavorites();
+      const isLiked = favorites.includes(book.id);
+    
+      const handleFavoriteClick = () => {
+        toggleFavorite(book.id);
+      };
     return (
         <>
             <Link href={`/catalog/${book.id}`} className={styles.catalogBooksItem}>
@@ -32,7 +40,7 @@ export default function CatalogBooksItem({ book }: SelectionProps) {
                                         <p className={styles.catalogBooksItem__text}>{book.editionCount}</p>
                                     </div>
                                     <div className={styles.catalogBooksItem__stat}>
-                                        <Image src={fav} alt='favourite'></Image>
+                                        <Image onClick={handleFavoriteClick} src={isLiked?liked:notLiked} alt='favourite'></Image>
 
                                     </div>
                                 </div>

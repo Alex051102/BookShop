@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
      border: 2px solid rgb(205, 200, 200);
-    box-shadow: 5px 5px 10px grey;
+    box-shadow: 5px 5px 10px grey;position: relative;
     &__container{
     display: flex;
     gap: 30px;

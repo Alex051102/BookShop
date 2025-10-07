@@ -1,0 +1,58 @@
+.auth{
+    background-color: white;border-radius:10px;
+    &__overlay{
+         height: 100vh;
+        width: 100%;
+       background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 10;
+        position: fixed;
+        top: 0;
+            left: 0;overflow: hidden;display: flex;justify-content: center;align-items: center;
+    }
+    &__container{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    &__exitBlock{
+        display: flex;
+        justify-content: end;
+    }
+    &__title{
+        display: flex;
+        justify-content: center;
+    }
+    &__titleText{
+        font-size: 20px;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    &__formItem{
+        position: relative;
+    }
+    &__error{
+        position: absolute;
+        top: 50px;left: 10px;
+        color: red;
+    }
+    &__input{
+        width: 330px;height: 48px;
+        border: 1px solid grey;border-radius: 7px;
+        padding: 10px;
+    }
+    &__buttonBlock{
+        position: relative;
+    }
+    &__swape{
+        display: flex;
+        justify-content: center;
+    }
+    &__swapeText{
+        text-decoration: underline;
+    }
+    
+}

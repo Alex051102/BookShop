@@ -16,14 +16,14 @@ export default function SimilarBooks({ genres }: SimilarProps) {
       setIsLoading(true)
       
       try {
-        // Если нет жанров, используем бестселлеры
+        
         if (!genres || genres.length === 0) {
           const bestsellers = await getBooks('bestsellers')
           setSimilarBooks(bestsellers)
           return
         }
 
-        // Ищем книги по жанрам
+        
         for (const genre of genres) {
           try {
             const books = await getBooks(genre.toLowerCase())
@@ -37,7 +37,7 @@ export default function SimilarBooks({ genres }: SimilarProps) {
           }
         }
 
-        // Если не нашли по жанрам, используем бестселлеры
+        
         const bestsellers = await getBooks('bestsellers')
         setSimilarBooks(bestsellers)
       } catch (error) {
@@ -56,7 +56,7 @@ export default function SimilarBooks({ genres }: SimilarProps) {
       title='Похожие книги'
       books={similarBooks}
       isLoading={isLoading}
-      skeletonCount={6} // Столько же, сколько обычно в горизонтальном скролле
+      skeletonCount={6} 
     />
   )
 }
